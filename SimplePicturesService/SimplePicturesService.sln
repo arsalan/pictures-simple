@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplePicturesService", "SimplePicturesService\SimplePicturesService.csproj", "{DF1AEBA5-BA78-4721-AFD9-3F25D884F675}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{25A79890-854F-4456-98B9-2CA821C4FB76}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\AzureWebsitePublishModule.psm1 = PublishScripts\AzureWebsitePublishModule.psm1
+		PublishScripts\Publish-WebApplicationWebsite.ps1 = PublishScripts\Publish-WebApplicationWebsite.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{37A4299F-6C73-4DB0-B59D-8E13A3E78538}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Configurations\SimplePicturesService-WAWS-dev.json = PublishScripts\Configurations\SimplePicturesService-WAWS-dev.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF1AEBA5-BA78-4721-AFD9-3F25D884F675}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF1AEBA5-BA78-4721-AFD9-3F25D884F675}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF1AEBA5-BA78-4721-AFD9-3F25D884F675}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF1AEBA5-BA78-4721-AFD9-3F25D884F675}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{37A4299F-6C73-4DB0-B59D-8E13A3E78538} = {25A79890-854F-4456-98B9-2CA821C4FB76}
+	EndGlobalSection
+EndGlobal
