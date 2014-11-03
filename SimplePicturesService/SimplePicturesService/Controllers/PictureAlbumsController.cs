@@ -9,11 +9,11 @@ namespace SimplePicturesService.Controllers
 {
     public class PictureAlbumsController : ApiController
     {
-        private IList<PictureAlbum> pictureAlbums;
+        private static IList<PictureAlbum> pictureAlbums;
 
         public PictureAlbumsController()
         {
-            this.pictureAlbums = new List<PictureAlbum>();
+            pictureAlbums = new List<PictureAlbum>();
             for (var i = 1; i < 11; i++)
             {
                 pictureAlbums.Add(new PictureAlbum { Id = i, Name = "Album " + i, Description = "Description " + i });
@@ -21,9 +21,27 @@ namespace SimplePicturesService.Controllers
         }
 
         [Route("api/pictureAlbums")]
-        public IEnumerable<PictureAlbum> Get()
+        public IEnumerable<PictureAlbum> GetPictureAlbums()
         {
-            return this.pictureAlbums;
+            return DataStore.GetPictureAlbums();
+        }
+
+        [Route("api/pictureAlbums/{id}")]
+        public PictureAlbum GetPictureAlbum(int id)
+        {
+            return DataStore.GetPictureAlbum(id);
+        }
+
+        [Route("api/pictureAlbums")]
+        public int Post(PictureAlbum album)
+        {
+            return DataStore.AddPictureAlbum(album);
+        }
+
+        [Route("api/pictureAlbums/{id}")]
+        public int Put(PictureAlbum album, int id)
+        {
+            return DataStore.UpdatePictureAlbum(album, id);
         }
     }
 }

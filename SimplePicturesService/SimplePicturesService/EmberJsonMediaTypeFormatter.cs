@@ -52,8 +52,11 @@ namespace SimplePicturesService
                 using (var reader = (new StreamReader(readStream, effectiveEncoding)))
                 {
                     var json = reader.ReadToEnd();
-                    var jo = JObject.Parse(json);
-                    return jo.SelectToken(root, false).ToObject(type);
+                    var serializer = new JsonSerializer();
+                    var deserialized = JsonConvert.DeserializeObject(content.ReadAsStringAsync().Result);
+                    return deserialized;
+                    //var jo = JObject.Parse(json);
+                    //return jo.SelectToken(root, false).ToObject(type);
                 }
             }
             catch (Exception e)
