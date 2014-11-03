@@ -22,7 +22,8 @@ namespace SimplePicturesService
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
+            GlobalConfiguration.Configuration.Formatters.Insert(0, new EmberJsonMediaTypeFormatter());
+            var jsonFormatter = config.Formatters.OfType<EmberJsonMediaTypeFormatter>().First();
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
         }
     }

@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Humanizer">
+      <HintPath>..\packages\Humanizer.1.30.0\lib\portable-win+net40+sl50+wp8+wpa81\Humanizer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -152,6 +155,7 @@
     <Compile Include="Controllers\PictureAlbum.cs" />
     <Compile Include="Controllers\PictureAlbumsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="EmberJsonMediaTypeFormatter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
