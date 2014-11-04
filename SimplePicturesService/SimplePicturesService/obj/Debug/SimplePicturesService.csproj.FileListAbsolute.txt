@@ -67,3 +67,6 @@ C:\Arsalan\code_repos\pictures-simple\SimplePicturesService\SimplePicturesServic
 C:\Arsalan\code_repos\pictures-simple\SimplePicturesService\SimplePicturesService\bin\uz-Cyrl-UZ\Humanizer.resources.dll
 C:\Arsalan\code_repos\pictures-simple\SimplePicturesService\SimplePicturesService\bin\uz-Latn-UZ\Humanizer.resources.dll
 C:\Arsalan\code_repos\pictures-simple\SimplePicturesService\SimplePicturesService\bin\vi\Humanizer.resources.dll
+C:\Arsalan\code_repos\pictures-simple\SimplePicturesService\SimplePicturesService\bin\System.Web.Cors.dll
+C:\Arsalan\code_repos\pictures-simple\SimplePicturesService\SimplePicturesService\bin\System.Web.Http.Cors.dll
+C:\Arsalan\code_repos\pictures-simple\SimplePicturesService\SimplePicturesService\bin\System.Web.Http.Cors.xml

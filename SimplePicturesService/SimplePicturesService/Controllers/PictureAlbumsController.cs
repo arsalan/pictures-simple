@@ -5,10 +5,12 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 
 namespace SimplePicturesService.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class PictureAlbumsController : ApiController
     {
         private static IList<PictureAlbum> pictureAlbums;
