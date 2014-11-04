@@ -157,6 +157,7 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataStore.cs" />
     <Compile Include="EmberJsonMediaTypeFormatter.cs" />
+    <Compile Include="EmberJsonSerializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

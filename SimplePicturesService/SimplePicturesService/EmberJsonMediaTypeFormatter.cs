@@ -52,9 +52,11 @@ namespace SimplePicturesService
                 using (var reader = (new StreamReader(readStream, effectiveEncoding)))
                 {
                     var json = reader.ReadToEnd();
-                    var serializer = new JsonSerializer();
-                    var deserialized = JsonConvert.DeserializeObject(content.ReadAsStringAsync().Result);
-                    return deserialized;
+                    //var serializer = new JsonSerializer();
+                    //var deserialized = JsonConvert.DeserializeObject(json);
+                    var serializer = new EmberJsonSerializer();
+                    var deserialized = serializer.Deserialize(json);
+                    return deserialized.ToObject(type);
                     //var jo = JObject.Parse(json);
                     //return jo.SelectToken(root, false).ToObject(type);
                 }

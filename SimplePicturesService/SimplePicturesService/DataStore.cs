@@ -10,7 +10,7 @@ namespace SimplePicturesService
     {
         private static IList<PictureAlbum> pictureAlbums;
 
-         static DataStore()
+        static DataStore()
         {
             pictureAlbums = new List<PictureAlbum>();
             for (var i = 1; i < 11; i++)
@@ -26,24 +26,37 @@ namespace SimplePicturesService
 
         public static PictureAlbum GetPictureAlbum(int id)
         {
-            return pictureAlbums.Single(p => p.Id == id);
+            return pictureAlbums.FirstOrDefault(p => p.Id == id);
         }
 
-        public static int AddPictureAlbum(PictureAlbum album)
+        public static PictureAlbum AddPictureAlbum(PictureAlbum album)
         {
             int id = pictureAlbums.Max(p => p.Id) + 1;
             album.Id = id;
             pictureAlbums.Add(album);
-            return id;
+            return album;
         }
 
         public static int UpdatePictureAlbum(PictureAlbum album, int id)
         {
-            var albumToUpdate = pictureAlbums.Single(p => p.Id == id);
-            albumToUpdate.Name = album.Name;
-            albumToUpdate.Description = album.Description;
-            albumToUpdate.PictureCount = album.PictureCount;
-            return id;
+            var albumToUpdate = pictureAlbums.FirstOrDefault(p => p.Id == id);
+            if (albumToUpdate != null)
+            {
+                albumToUpdate.Name = album.Name;
+                albumToUpdate.Description = album.Description;
+                albumToUpdate.PictureCount = album.PictureCount;
+                return id;
+            }
+            return -1;
+        }
+
+        public static void DeletePictureAlbum(int id)
+        {
+            var albumToDelete = pictureAlbums.FirstOrDefault(p => p.Id == id);
+            if (albumToDelete != null)
+            {
+                pictureAlbums.Remove(albumToDelete);
+            }
         }
     }
 }

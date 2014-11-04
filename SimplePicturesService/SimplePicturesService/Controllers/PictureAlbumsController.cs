@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace SimplePicturesService.Controllers
 {
@@ -26,22 +28,43 @@ namespace SimplePicturesService.Controllers
             return DataStore.GetPictureAlbums();
         }
 
-        [Route("api/pictureAlbums/{id}")]
-        public PictureAlbum GetPictureAlbum(int id)
+        [Route("api/pictureAlbums/{id}", Name = "PictureAlbum")]
+        [ResponseType(typeof(PictureAlbum))]
+        public IHttpActionResult GetPictureAlbum(int id)
         {
-            return DataStore.GetPictureAlbum(id);
+            var foundAlbum = DataStore.GetPictureAlbum(id);
+            if (foundAlbum != null)
+            {
+                return Ok(foundAlbum);
+            }
+
+            return NotFound();
         }
 
         [Route("api/pictureAlbums")]
-        public int Post(PictureAlbum album)
+        [ResponseType(typeof(PictureAlbum))]
+        public IHttpActionResult PostPictureAlbum(PictureAlbum album)
         {
-            return DataStore.AddPictureAlbum(album);
+            var createdAlbum = DataStore.AddPictureAlbum(album);
+            var location = Url.Route("PictureAlbum", new { id = createdAlbum.Id });
+            return Created(location, createdAlbum);
         }
 
         [Route("api/pictureAlbums/{id}")]
-        public int Put(PictureAlbum album, int id)
+        [ResponseType(typeof(int))]
+        public IHttpActionResult PutPictureAlbum(PictureAlbum album, int id)
         {
-            return DataStore.UpdatePictureAlbum(album, id);
+            if (DataStore.UpdatePictureAlbum(album, id) > 0)
+            {
+                return Ok(id);
+            }
+            return NotFound();
+        }
+
+        [Route("api/pictureAlbums/{id}")]
+        public void DeletePictureAlbum(int id)
+        {
+            DataStore.DeletePictureAlbum(id);
         }
     }
 }
