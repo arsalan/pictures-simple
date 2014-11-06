@@ -14,7 +14,7 @@ namespace SimplePicturesService.Models
         {
             get
             {
-                return this.Pictures.Count;
+                return this.Pictures != null ? this.Pictures.Count : 0;
             }
         }
         public ICollection<Picture> Pictures { get; set; }
