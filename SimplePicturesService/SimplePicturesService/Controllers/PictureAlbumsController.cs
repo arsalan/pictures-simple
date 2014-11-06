@@ -57,9 +57,10 @@ namespace SimplePicturesService.Controllers
         [ResponseType(typeof(int))]
         public IHttpActionResult PutPictureAlbum(PictureAlbum album, int id)
         {
-            if (DataStore.UpdatePictureAlbum(album, id) > 0)
+            var updatedAlbum = DataStore.UpdatePictureAlbum(album, id);
+            if (updatedAlbum != null)
             {
-                return Ok(id);
+                return Ok(updatedAlbum);
             }
             return NotFound();
         }
