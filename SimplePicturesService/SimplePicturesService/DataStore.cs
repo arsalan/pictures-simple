@@ -89,19 +89,18 @@ namespace SimplePicturesService
             return null;
         }
 
-        public static int UpdatePictureAlbum(PictureAlbum album, int id)
+        public static PictureAlbum UpdatePictureAlbum(PictureAlbum album, int id)
         {
             var albumToUpdate = pictureAlbums.FirstOrDefault(p => p.Id == id);
             if (albumToUpdate != null)
             {
                 albumToUpdate.Name = album.Name;
                 albumToUpdate.Description = album.Description;
-                return id;
             }
-            return -1;
+            return albumToUpdate;
         }
 
-        public static int UpdatePicture(Picture picture, int pictureAlbumId, int pictureId)
+        public static Picture UpdatePicture(Picture picture, int pictureAlbumId, int pictureId)
         {
             var album = pictureAlbums.FirstOrDefault(p => p.Id == pictureAlbumId);
             if (album != null)
@@ -115,10 +114,10 @@ namespace SimplePicturesService
                     pictureToUpdate.Width = picture.Width;
                     pictureToUpdate.Tags = picture.Tags;
                     pictureToUpdate.Url = picture.Url;
-                    return pictureId;
+                    return pictureToUpdate;
                 }
             }
-            return -1;
+            return null;
         }
 
         public static void DeletePictureAlbum(int id)
