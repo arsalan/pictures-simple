@@ -17,12 +17,14 @@ namespace SimplePicturesService
         private string RemoveRoot(string json)
         {
             json = json.Trim();
-            if (json.StartsWith("{") || json.StartsWith("["))
+            var bracesChopped = json.Substring(1, json.Length - 2);
+
+            if (bracesChopped.EndsWith("}"))
             {
-                return json;
+                return bracesChopped.Substring(bracesChopped.IndexOf(":") + 1);
             }
 
-            return json.Substring(json.IndexOf(":") + 1);
+            return json;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using SimplePicturesService.Controllers;
+using SimplePicturesService.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace SimplePicturesService
                         Height = 200,
                         Width = 400,
                         Url = "http://lorempixel.com/g/400/200",
-                        Tags = new [] {"Picture", "Number" + i}
+                        Tags = new [] {"Picture", "Number" + i }
                     });
                 }
                 newAlbum.Pictures = newPictures;
@@ -95,7 +96,6 @@ namespace SimplePicturesService
             {
                 albumToUpdate.Name = album.Name;
                 albumToUpdate.Description = album.Description;
-                albumToUpdate.PictureCount = album.PictureCount;
                 return id;
             }
             return -1;
