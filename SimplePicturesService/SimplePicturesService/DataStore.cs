@@ -27,7 +27,8 @@ namespace SimplePicturesService
                         Description = "Description for picture " + i,
                         Height = 200,
                         Width = 400,
-                        Url = "http://lorempixel.com/g/400/200",
+                        //Url = "http://lorempixel.com/g/400/200",
+                        Url = "http://placekitten.com/g/400/200",
                         Tags = new [] {"Picture", "Number" + i }
                     });
                 }
