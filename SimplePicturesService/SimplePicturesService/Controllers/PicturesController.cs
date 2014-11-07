@@ -52,9 +52,10 @@ namespace SimplePicturesService.Controllers
         [Route("api/pictureAlbums/{pictureAlbumId}/pictures/{pictureId}")]
         public IHttpActionResult UpdatePicture(Picture picture, int pictureAlbumId, int pictureId)
         {
-            if (DataStore.UpdatePicture(picture, pictureAlbumId, pictureId) > 0)
+            var updatedPicture = DataStore.UpdatePicture(picture, pictureAlbumId, pictureId);
+            if (updatedPicture != null)
             {
-                return Ok(pictureId);
+                return Ok(updatedPicture);
             }
             return NotFound();
         }
